@@ -13,8 +13,8 @@ const Popup = ({ message, onYesClick, onNoClick, selectedItemsAmount, onOkayClic
           <div className="popup-buttons">
             {selectedItemsAmount === undefined ||  selectedItemsAmount !== 0 ? (
               <>
-                <Button change={onYesClick}>Yes</Button>
-                <Button change={onNoClick}>No</Button>
+                <Button change={onYesClick} className="yesButtonPopup yes" >Yes</Button>
+                <Button change={onNoClick} className="noButtonPopup ">No</Button>
               </>
             ) : (
               <Button change={onOkayClick}>Okay</Button>

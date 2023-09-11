@@ -1,29 +1,38 @@
-import React from 'react';
-import burgerImage from '../../images/burger.jpeg'; // Import the image using require
-import Navbar from '../shared/Navbar/Navbar';
+import React, { useState, useEffect } from 'react';
+import burgerImage from '../../images/burger.jpeg';
 import Footer from '../shared/Footer/Footer';
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/components/Home/home.css'
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/App.css';
+import './home.css'; 
+import '../../App.css'; 
 
+const Home = ({ cartItemCount }) => {
+  const [animate, setAnimate] = useState(false);
 
-const Home = ({cartItemCount}) => {
-  return ( 
+  useEffect(() => {
+    const animationTimeout = setTimeout(() => {
+      setAnimate(true);
+    }, 1000); 
+
+    return () => clearTimeout(animationTimeout);
+  }, []);
+
+  return (
     <>
-    <section className="home" id="home">
-      <div className="home-content">
-        <div className="swiper-slide">
-          <img src={burgerImage} alt="" className="home-img" /> 
-          <div className="home-details">
-            <div className="home-text">
-              <h4 className="homeSubtitle">Serving Savory Delights.</h4>
-              <h2 className="homeTitle">Quick Bites with <br /> Irresistible Flavor.</h2>
+      <section className="home" id="home">
+        <div className="home-content">
+          <div className={`swiper-slide ${animate ? 'animate' : ''}`}>
+            <img src={burgerImage} alt="" className="home-img" />
+            <div className="home-details">
+              <div className="home-text">
+                <h1 className="homeSubtitle scale-up-center">Get ready to level up your taste game and 
+                experience a one-way ticket to Yumtown!</h1>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <Footer />
-</>
+      </section>
+
+    </>
   );
 };
+
 export default Home;

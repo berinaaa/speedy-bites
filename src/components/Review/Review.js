@@ -2,50 +2,47 @@ import React from 'react';
 import Footer from '../shared/Footer/Footer';
 import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/components/Review/review.css'
 import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/App.css';
+import profileImg1 from '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/images/profileImg1.jpg';
+import profileImg2 from '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/images/profileImg2.png';
+import profileImg3 from '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/images/profileImg3.jpg';
 
 
 const ReviewsSection = () => {
-  return (
-    <>
-    {/* <Navbar /> */}
-    <div className="new-responsive-container new-main-container">
-  <p className="new-text-block new-team-head-text"></p>
-  <div className="new-responsive-container">
-    <div className="new-card-container">
-      <div className="new-card">
-        <div className="new-team-image-wrapper">
-          <img className="new-team-member-image" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png" alt="Johnnetta Smith" />
+
+return (
+  <div>
+
+    <div className="menu-container">
+      <div className="menu-card">
+        <div className="menu-card-image">
+          <img src={profileImg1} alt="Breakfast/Eggs" />
         </div>
-        <p className="new-text-block new-name">Johnnetta Smith</p>
-        <p>Regular Customer</p>
-        <p>"This fast food restaurant is simply amazing! The burgers are always fresh and packed with flavor. I love their fries too, perfectly crispy!"</p>
+        <div className="menu-card-text">
+          <h2 className="menu-card-title">Johnnetta Smith</h2>
+          <p className="menu-card-body">The burgers are always fresh and packed with flavor. I love their fries too, perfectly crispy!</p>
+        </div>
       </div>
-    </div>
-    <div className="new-card-container">
-      <div className="new-card">
-        <div className="new-team-image-wrapper">
-          <img className="new-team-member-image" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png" alt="Jane Doe" />
+      <div className="menu-card">
+        <div className="menu-card-image">
+          <img src={profileImg2} alt="Lunch/Meat" />
         </div>
-        <p className="new-text-block new-name">Jane Doe</p>
-        <p>Food Blogger</p>
-        <p>"The fast food here is a treat for the taste buds! I highly recommend their milkshakes; they are rich and oh-so-delicious!"</p>
+        <div className="menu-card-text">
+          <h2 className="menu-card-title">Aria Doe</h2>
+          <p className="menu-card-body">A beef burger with wholewheat patty, juicy lettuce and a side of gluten-free fries</p>
+        </div>
       </div>
-    </div>
-    <div className="new-card-container">
-      <div className="new-card">
-        <div className="new-team-image-wrapper">
-          <img className="new-team-member-image" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET7.14.png" alt="Michael Johnson" />
+      <div className="menu-card">
+        <div className="menu-card-image">
+          <img src={profileImg3} alt="Soups/Meat" />
         </div>
-        <p className="new-text-block new-name">Michael Johnson</p>
-        <p>Happy Customer</p>
-        <p>"This fast food restaurant has become my go-to place for quick and tasty meals. Their friendly staff and cozy ambiance make dining here a pleasure."</p>
+        <div className="menu-card-text">
+          <h2 className="menu-card-title">Michael Johnson</h2>
+          <p className="menu-card-body">I highly recommend their milkshakes; they are rich and oh-so-delicious!</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-    <Footer />
-    </>
-  );
+);
 };
 
 export default ReviewsSection;
