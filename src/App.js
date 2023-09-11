@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RouterProvider, createBrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Header from './components/shared/Navbar/Navbar';
 import Home from './components/Home/Home'
 import About from './components/About/About';
@@ -11,10 +11,8 @@ import { OrderProvider } from './context/order';
 import Footer from './components/shared/Footer/Footer';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [setCartItems] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
-  const [showPopup, setShowPopup] = useState(false); 
-  const [totalAmount, setTotalAmount] = useState(0); 
 
   const updateCart = () => {
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
