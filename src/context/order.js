@@ -54,65 +54,61 @@ export const OrderProvider = ({ children }) => {
         return order;
       })
     );
-  
+
     setOrderNumber((prevTotal) => {
-      if (prevTotal > 1) { 
+      if (prevTotal > 1) {
         const newOrderNumber = prevTotal - 1;
         localStorage.setItem("orderNumber", newOrderNumber.toString());
         return newOrderNumber;
       }
-      return prevTotal; 
+      return prevTotal;
     });
   };
-
 
   const handleRemoveItem = (index) => {
     const updatedOrders = [...orders];
-    updatedOrders.splice(index, 1);
+    const removedItem = updatedOrders.splice(index, 1)[0];
     setOrders(updatedOrders);
+
     setOrderNumber((prevTotal) => {
-      if (prevTotal > 0) { 
-        const newOrderNumber = prevTotal - 1; // caty ndroje
+      if (prevTotal > removedItem.quantity) {
+        const newOrderNumber = prevTotal - removedItem.quantity;
         localStorage.setItem("orderNumber", newOrderNumber.toString());
         return newOrderNumber;
       }
-      return prevTotal; 
+      return prevTotal;
     });
   };
 
-
   const [showPopup, setShowPopup] = useState(false);
 
-const handleSubmit = () => {
-  if (orders.length > 0) {
+  const handleSubmit = () => {
+    if (orders.length > 0) {
+      setShowPopup(true);
+    } else {
+      handleEmptyCartSubmit();
+    }
+  };
+
+  const handleEmptyCartSubmit = () => {
     setShowPopup(true);
-  }else {
-        handleEmptyCartSubmit();
-      }
-};
+  };
 
-const handleEmptyCartSubmit = () => {
-  setShowPopup(true);
-};
+  const [totalAmount, setTotalAmount] = useState(0);
 
-const [totalAmount, setTotalAmount] = useState(0);
-
-const handleConfirmSubmit = () => {
-  setOrders([]);
-  setTotalAmount(0);
-  localStorage.removeItem('orders');
-  setShowPopup(false);
-  setOrderNumber([]);
-}; 
-
-
+  const handleConfirmSubmit = () => {
+    setOrders([]);
+    setTotalAmount(0);
+    localStorage.removeItem("orders");
+    setShowPopup(false);
+    setOrderNumber([]);
+  };
 
   useEffect(() => {
     localStorage.setItem("orders", JSON.stringify(orders));
     localStorage.setItem("orderNumber", orderNumber.toString());
   }, [orders, orderNumber]);
 
- 
   return (
     <OrderContext.Provider
       value={{
@@ -130,13 +126,16 @@ const handleConfirmSubmit = () => {
         <Popup
           message={
             orders.length > 0
-              ? 'Are you sure you want to submit your purchase?'
-              : 'Your cart is empty. Add items before submitting.'
+              ? "Are you sure you want to submit your purchase?"
+              : "Your cart is empty. Add items before submitting."
           }
           onYesClick={handleConfirmSubmit}
           onNoClick={() => setShowPopup(false)}
           onOkayClick={orders.length === 0 ? handleConfirmSubmit : undefined}
-          selectedItemsAmount={orders.reduce((total, item) => total + item.quantity * item.discountPrice, 0)}
+          selectedItemsAmount={orders.reduce(
+            (total, item) => total + item.quantity * item.discountPrice,
+            0
+          )}
         />
       )}
 
@@ -144,4 +143,3 @@ const handleConfirmSubmit = () => {
     </OrderContext.Provider>
   );
 };
-

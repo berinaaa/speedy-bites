@@ -1,16 +1,16 @@
-.nav{
+.nav {
   position: relative;
   height: 100%;
   align-items: center;
   justify-content: space-between;
   z-index: var(--z-overlay) + 1;
-
 }
+
 .logo-icon,
 .logo-text,
 .nav-link,
 .phone-icon,
-.phone-number{
+.phone-number {
   color: orange;
 }
 
@@ -18,25 +18,28 @@
 .header-active .logo-text,
 .header-active .nav-link,
 .header-active .phone-icon,
-.header-active .phone-number{
+.header-active .phone-number {
   color: var(--text-color);
 }
 
 .logo-icon,
-.phone-icon{
+.phone-icon {
   font-size: 2rem;
 }
-.menu-list{
+
+.menu-list {
   column-gap: 2rem;
   margin-left: 10px;
   margin-right: 10px;
 }
-.nav-link{
+
+.nav-link {
   position: relative;
   text-transform: capitalize;
   margin-top: 15px;
 }
-.nav-link::before{
+
+.nav-link::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -52,19 +55,22 @@
 .header-active {
   background-color: var(--text-color);
 }
-.media-icons{
+
+.media-icons {
   column-gap: 1rem;
 }
-.media-icons a{
+
+.media-icons a {
   color: var(--text-color-light);
 }
+
 .navClose-btn,
 .navOpen-btn,
-.media-icons{
+.media-icons {
   display: none;
-} 
+}
 
-.header{
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -75,11 +81,12 @@
   background-color: #2C3034;
 }
 
-.header-active{
+.header-active {
   height: 6rem;
   background-color: var(--white-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .mobile-menu-icon {
   display: none;
   cursor: pointer;
@@ -96,8 +103,6 @@
 .mobile-menu-icon.open .bar:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
-
-
 
 .mobile-menu-icon {
   display: none;
@@ -116,12 +121,12 @@
   align-items: center;
 }
 
-
 @media (min-width: 901px) {
-  .currency{
-  margin-left: 160px;
+  .currency {
+    margin-left: 160px;
   }
 }
+
 @media (max-width: 900px) {
   .mobile-menu-icon {
     display: flex;
@@ -149,16 +154,15 @@
 
   .menu-list {
     flex-direction: column;
-    align-items: flex-start;    
+    align-items: flex-start;
     margin-left: 33px;
   }
 
   .currency select {
     margin-left: 30px;
   }
-  .logo-text 
-  {
+
+  .logo-text {
     font-size: 22px;
   }
 }
-

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import burgerImage from '../../images/burger.jpeg';
-import Footer from '../shared/Footer/Footer';
-import './home.css'; 
-import '../../App.css'; 
+import './home.css';
+import '../../App.css';
 
 const Home = ({ cartItemCount }) => {
   const [animate, setAnimate] = useState(false);
@@ -10,7 +9,7 @@ const Home = ({ cartItemCount }) => {
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
       setAnimate(true);
-    }, 1000); 
+    }, 1000);
 
     return () => clearTimeout(animationTimeout);
   }, []);
@@ -23,14 +22,14 @@ const Home = ({ cartItemCount }) => {
             <img src={burgerImage} alt="" className="home-img" />
             <div className="home-details">
               <div className="home-text">
-                <h1 className="homeSubtitle scale-up-center">Get ready to level up your taste game and 
-                experience a one-way ticket to Yumtown!</h1>
+                <h1 className="homeSubtitle scale-up-center">
+                  Get ready to level up your taste game and experience a one-way ticket to Yumtown!
+                </h1>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </>
   );
 };

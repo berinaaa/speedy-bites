@@ -1,8 +1,8 @@
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/components/shared/Navbar/navbar.css';
-import { Link, Outlet } from 'react-router-dom';
+import '../../shared/Navbar/navbar.css';
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useCurrency } from '../../../context/currency';
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/App.css';
+import '../../../App.css';
 import { useOrderContext } from '../../../context/order';
 
 const Header = ({ cartItemCount }) => {
@@ -10,7 +10,6 @@ const Header = ({ cartItemCount }) => {
   const { orderNumber } = useOrderContext()
   const [localStorageValue, setLocalStorageValue] = useState(localStorage.getItem('cartItems') || []);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
 
   useEffect(() => {
     const handleStorageChange = (event) => {
@@ -25,11 +24,11 @@ const Header = ({ cartItemCount }) => {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-
-
   };
+
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
@@ -44,16 +43,15 @@ const Header = ({ cartItemCount }) => {
             </Link>
           </a>
           <div className={`mobile-menu-icon ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
-  <div className="bar"></div>
-  <div className="bar"></div>
-  <div className="bar"></div>
-</div>
-{isMobileMenuOpen && (
-  <span className="cart-count">{orderNumber}</span>
-)}
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+          {isMobileMenuOpen && (
+            <span className="cart-count">{orderNumber}</span>
+          )}
           <div className={`menu-content ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
-          
-          <ul className="menu-list flex">
+            <ul className="menu-list flex">
               <Link to="/Home" className="nav-link" onClick={closeMobileMenu}>
                 Home
               </Link>
@@ -71,23 +69,17 @@ const Header = ({ cartItemCount }) => {
               </Link>
             </ul>
             <div className="currency">
-          <select value={currency} onChange={(e) => handleMoneyValueChange(e.target.value)}>
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="denar">ДЕН</option>
-          </select>
-        </div>
-            
+              <select value={currency} onChange={(e) => handleMoneyValueChange(e.target.value)}>
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="denar">ДЕН</option>
+              </select>
+            </div>
           </div>
-
-      </nav>
-    </header>
-   
+        </nav>
+      </header>
     </>
-
- 
-  )};
+  );
+};
 
 export default Header;
-
-

@@ -10,8 +10,6 @@ import { CurrencyProvider } from './context/currency';
 import { OrderProvider } from './context/order';
 import Footer from './components/shared/Footer/Footer';
 
-
-
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -75,8 +73,6 @@ function App() {
       ]
     }
   ]);
-
-
 
   return (
     <div>

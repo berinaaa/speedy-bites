@@ -1,7 +1,6 @@
 import React from 'react';
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/components/shared/Button/button.css';
-import '/Users/berina/Desktop/workspace/reactBurger/react-burger/src/App.css';
-
+import '../../shared/Button/button.css';
+import '../../../App.css';
 
 const Button = ({ change, children, disabled }) => {
   return (
