@@ -90,7 +90,7 @@
 // export default App;
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { RouterProvider, createBrowserRouter, Outlet } from 'react-router-dom';
 import Header from './components/shared/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -103,25 +103,18 @@ import { OrderProvider } from './context/order';
 import Footer from './components/shared/Footer/Footer';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
 
-  const updateCart = () => {
+  const updateCart = useCallback(() => {
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    setCartItems(storedCartItems);
 
     const itemCount = storedCartItems.reduce((total, item) => total + item.quantity, 0);
     setCartItemCount(itemCount);
-  };
+  }, []);
 
   useEffect(() => {
     updateCart();
   }, [updateCart]);
-
-  useEffect(() => {
-    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    setCartItems(storedCartItems);
-  }, [setCartItems]);
 
   const router = createBrowserRouter([
     {
