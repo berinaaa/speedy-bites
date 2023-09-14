@@ -59,6 +59,7 @@ a {
   color: #363636;
   text-decoration: none;
   transition: 0.3s;
+  text-align: center;
 }
 
 .menu-product-details h4 a:hover {
@@ -140,7 +141,9 @@ a {
   max-height: none;
   overflow: auto;
 }
-
+.itemName {
+  text-align: center;
+}
 @media (min-width: 850px) and (max-width: 1050px) {
   .menu-product-tumb img {
     max-width: 80%;

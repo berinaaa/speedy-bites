@@ -3,7 +3,7 @@ import FiveGuysImage from '../../images/FiveGuys.jpeg';
 import '../About/about.css';
 import '../../../src/App.css';
 
-const About = ({}) => {
+const About = () => {
   return (
     <>
       <section className="aboutSection about" id="about">

@@ -7,13 +7,14 @@ import '../Menu/menu.css';
 import '../../../src/App.css';
 import { convertCurrency, returnCurrencySymbol } from '../services/global';
 import { useOrderContext } from '../../context/order';
+import Button from '../shared/Button/Button';
 
 const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedBurger, setSelectedBurger] = useState('');
   const { currency } = useCurrency();
   const [cartItemCount, setCartItemCount] = useState();
-  const { orders, setOrders, handleOrder } = useOrderContext();
+  const { handleOrder } = useOrderContext();
   const [expandedCards, setExpandedCards] = useState({});
 
   const addToCart = (burgerName) => {
@@ -49,7 +50,7 @@ const Menu = () => {
             </div>
             <div className="menu-product-details">
               <h4>
-                <a href="#">{item.productName}</a>
+                <h4 className='itemName'>{item.name}</h4>
               </h4>
               <p>
                 {expandedCards[index]
@@ -71,9 +72,9 @@ const Menu = () => {
                   {returnCurrencySymbol(currency)}
                 </div>
                 <div className="menu-product-links">
-                  <a href="#" onClick={() => addToCart(item.name)}>
+                  <Button onClick={() => addToCart(item.name)}>
                     <i className="fa fa-shopping-cart"></i>
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>
