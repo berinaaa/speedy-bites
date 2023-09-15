@@ -173,11 +173,17 @@ a {
 
 @media (max-width: 549px) {
   .product-card-container {
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 70px;
+    margin-right: 70px;
   }
 
   .menu-product-card {
     width: 100%;
   }
+}
+@media (max-width: 375px) {
+  .product-card-container {
+    margin-left: 40px;
+    margin-right: 40px;
+}
 }
