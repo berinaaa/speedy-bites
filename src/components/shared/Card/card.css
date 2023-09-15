@@ -343,6 +343,55 @@
 
 @media (max-width: 507px) {
   .cart {
-    margin-right: -300px;
+    padding: 0px;
+  }
+
+  .coontainer {
+    margin: 0px;
+  }
+
+  .product-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+
+  .product-details h1 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .provo button {
+    font-size: 12px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .remove-button button {
+    font-size: 12px;
+    width: 70px;
+    height: 30px;
+  }
+
+  .total button {
+    font-size: 12px;
+    width: 70px;
+    height: 30px;
+  }
+
+  .product-details p {
+    font-size: 12px;
+  }
+
+  .quantityyy {
+    font-size: 12px;
+  }
+
+  .price-currency {
+    font-size: 20px;
   }
 }
+
+/* Existing CSS styles below this point */
