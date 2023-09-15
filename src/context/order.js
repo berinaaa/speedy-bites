@@ -94,7 +94,7 @@ export const OrderProvider = ({ children }) => {
     setShowPopup(true);
   };
 
-  const [totalAmount, setTotalAmount] = useState(0);
+  const [setTotalAmount] = useState(0);
 
   const handleConfirmSubmit = () => {
     setOrders([]);
