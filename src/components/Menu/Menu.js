@@ -7,7 +7,6 @@ import '../Menu/menu.css';
 import '../../../src/App.css';
 import { convertCurrency, returnCurrencySymbol } from '../services/global';
 import { useOrderContext } from '../../context/order';
-import Button from '../shared/Button/Button';
 
 const Menu = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -72,9 +71,9 @@ const Menu = () => {
                   {returnCurrencySymbol(currency)}
                 </div>
                 <div className="menu-product-links">
-                  <Button onClick={() => addToCart(item.name)}>
+                  <button className='specialButton' onClick={() => addToCart(item.name)}>
                     <i className="fa fa-shopping-cart"></i>
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

@@ -8,10 +8,9 @@ import { convertCurrency, returnCurrencySymbol } from '../../services/global';
 import { useOrderContext } from '../../../context/order';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [ setCartItems] = useState([]);
+  const [ setTotalAmount] = useState(0);
+  const [ setCartItemCount] = useState(0);
   const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   const itemCount = storedCartItems.reduce((total, item) => total + item.quantity, 0);
   const { currency } = useCurrency();
@@ -21,7 +20,6 @@ const Cart = () => {
     handleDecrease, 
     handleRemoveItem,
     handleSubmit, 
-    handleConfirmSubmit,
   } = useOrderContext();
 
   const updateCart = () => {

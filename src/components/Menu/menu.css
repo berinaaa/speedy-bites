@@ -144,6 +144,15 @@ a {
 .itemName {
   text-align: center;
 }
+.specialButton {
+  display: inline-block;
+  margin-left: 5px;
+  color: #e1e1e1;
+  transition: 0.3s;
+  font-size: 17px;
+  border: none;
+  background: none;
+}
 @media (min-width: 850px) and (max-width: 1050px) {
   .menu-product-tumb img {
     max-width: 80%;

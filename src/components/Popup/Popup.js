@@ -4,7 +4,6 @@ import Button from '../shared/Button/Button';
 import '../../../src/App.css';
 
 const Popup = ({ message, onYesClick, onNoClick, selectedItemsAmount, onOkayClick }) => {
-  const showYesNoButtons = onYesClick && onNoClick;
   console.log(selectedItemsAmount);
 
   return (

@@ -37,11 +37,9 @@ const Header = ({ cartItemCount }) => {
     <>
       <header className={`header ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         <nav className="nav container flex">
-          <a href="#" className="logo-content flex">
             <Link to="/Home">
               <span className="logo-text">SpeedyBites</span>
             </Link>
-          </a>
           <div className={`mobile-menu-icon ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu}>
             <div className="bar"></div>
             <div className="bar"></div>
