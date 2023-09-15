@@ -69,14 +69,16 @@ export const OrderProvider = ({ children }) => {
     const updatedOrders = [...orders];
     const removedItem = updatedOrders.splice(index, 1)[0];
     setOrders(updatedOrders);
-
+  
     setOrderNumber((prevTotal) => {
-      if (prevTotal > removedItem.quantity) {
-        const newOrderNumber = prevTotal - removedItem.quantity;
+      const newOrderNumber = prevTotal - removedItem.quantity;
+      if (newOrderNumber <= 0) {
+        localStorage.removeItem("orderNumber");
+        return 0;
+      } else {
         localStorage.setItem("orderNumber", newOrderNumber.toString());
         return newOrderNumber;
       }
-      return prevTotal;
     });
   };
 
@@ -88,17 +90,19 @@ export const OrderProvider = ({ children }) => {
     } else {
       handleEmptyCartSubmit();
     }
+    
   };
 
   const handleEmptyCartSubmit = () => {
     setShowPopup(true);
+    
   };
 
-  const [setTotalAmount] = useState(0);
+
 
   const handleConfirmSubmit = () => {
     setOrders([]);
-    setTotalAmount(0);
+
     localStorage.removeItem("orders");
     setShowPopup(false);
     setOrderNumber([]);

@@ -17,7 +17,7 @@ const Popup = ({ message, onYesClick, onNoClick, selectedItemsAmount, onOkayClic
               <Button change={onNoClick} className="noButtonPopup">No</Button>
             </>
           ) : (
-            <Button change={onOkayClick}>Okay</Button>
+            <Button className="okayButtonPopup" change={onOkayClick}>Okay</Button>
           )}
         </div>
       </div>
