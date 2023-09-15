@@ -8,7 +8,7 @@ import { useOrderContext } from '../../../context/order';
 const Header = ({ cartItemCount }) => {
   const { currency, handleMoneyValueChange } = useCurrency();
   const { orderNumber } = useOrderContext()
-  const [localStorageValue, setLocalStorageValue] = useState(localStorage.getItem('cartItems') || []);
+  const [ setLocalStorageValue] = useState(localStorage.getItem('cartItems') || []);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Header = ({ cartItemCount }) => {
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
+    // eslint-disable-next-line
   }, []);
 
   const toggleMobileMenu = () => {

@@ -3,16 +3,10 @@ import Button from '../Button/Button';
 import { useCurrency } from '../../../context/currency';
 import '../../shared/Card/card.css';
 import '../../../App.css';
-import { useState } from 'react';
 import { convertCurrency, returnCurrencySymbol } from '../../services/global';
 import { useOrderContext } from '../../../context/order';
 
 const Cart = () => {
-  const [ setCartItems] = useState([]);
-  const [ setTotalAmount] = useState(0);
-  const [ setCartItemCount] = useState(0);
-  const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const itemCount = storedCartItems.reduce((total, item) => total + item.quantity, 0);
   const { currency } = useCurrency();
   const { 
     orders, 
@@ -22,21 +16,6 @@ const Cart = () => {
     handleSubmit, 
   } = useOrderContext();
 
-  const updateCart = () => {
-    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    setCartItems(storedCartItems);
-
-    const totalAmount = storedCartItems.reduce((total, item) => {
-      const burgerItem = burgerData.find((burger) => burger.name === item.name);
-      const itemPrice = item.quantity * burgerItem.discountPrice;
-      return total + itemPrice;
-    }, 0);
-
-    setTotalAmount(totalAmount);
-
-    const itemCount = storedCartItems.reduce((total, item) => total + item.quantity, 0);
-    setCartItemCount(itemCount);
-  };
 
   return (
     <>
